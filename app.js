@@ -14,7 +14,6 @@ app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({extended: true}));
 
-
 app.use(session({
     store: new pgSession({
         pool: pgPool,
@@ -24,6 +23,8 @@ app.use(session({
     saveUninitialized: true,
     cookie: { maxAge:  60 * 1000 } // 60 seconds test
 }));
+
+require('./config/passport');
 
 app.use('/', indexRouter);
 
