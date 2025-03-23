@@ -1,6 +1,7 @@
+const {  } = require('../db/queries');
 
+const indexController = async (req, res) => {
 
-const indexController = (req, res) => {
     res.render('index', {
         title: 'Home'
     });
