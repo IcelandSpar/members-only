@@ -7,6 +7,8 @@ const PORT = process.env.PORT;
 const indexRouter = require('./routes/index');
 const pgSession = require('connect-pg-simple')(session);
 const pgPool = require('./db/pool');
+const formRouter = require('./routes/formRoutes');
+const passport = require('passport');
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -23,11 +25,12 @@ app.use(session({
     saveUninitialized: true,
     cookie: { maxAge:  60 * 1000 } // 60 seconds test
 }));
+app.use(passport.authenticate('session'));
 
 require('./config/passport');
 
 app.use('/', indexRouter);
-
+app.use('/form', formRouter);
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)

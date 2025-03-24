@@ -1,8 +1,10 @@
 const { Router } = require('express');
 const indexRouter = Router();
-const { indexController, postIndexController } = require('../controllers/indexController');
+const { indexController, postIndexController, getLogOutController } = require('../controllers/indexController');
 
 indexRouter.get('/', indexController);
-indexRouter.post('/form-test', postIndexController)
+indexRouter.post('/form-test', postIndexController);
+
+indexRouter.get('/log-out', getLogOutController);
 
 module.exports = indexRouter;
