@@ -13,7 +13,6 @@ const postIndexController = (req, res) => {
 
 const protectedRouteControllerTest = (req, res) => {
     if(req.isAuthenticated()) {
-        console.log('hello worldy world!')
         res.send('<h1>hello worldy world!</h1>\
             <a href="/log-out">Log Out</a>\
             ')

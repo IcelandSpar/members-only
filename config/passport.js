@@ -1,8 +1,8 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const connection = require('../db/pool');
 const bcrypt = require('bcryptjs');
 const pool = require('../db/pool');
+const { genPassword } = require('../lib/passwordUtils');
 
 
 
@@ -11,13 +11,15 @@ passport.use(
       try {
         const { rows } = await pool.query("SELECT * FROM users WHERE username = $1", [username]);
         const user = rows[0];
-  
         if (!user) {
           return done(null, false, { message: "Incorrect username" });
         }
-        if (user.hash !== password) {
-          return done(null, false, { message: "Incorrect password" });
+        const match = await bcrypt.compare(password, user.hash);
+
+        if(!match) {
+          return done(null, false, { message: "Incorrect Password" })
         }
+
         return done(null, user);
       } catch(err) {
         return done(err);
