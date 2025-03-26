@@ -1,0 +1,59 @@
+:root {
+--cerise: #F90060ff;
+--black: #000000ff;
+--night: #040E08ff;
+--tekhelet: #4E2299ff;
+--dark-cyan: #3D9189ff;
+
+
+--dark-pastel-green: #07C658ff;
+--olivine: #A5C387ff;
+--blush: #C06A86ff;
+--dim-gray: #73695Bff;
+--cambridge-blue: #84A58Cff;
+
+--defaultContanierWidth: 1000px;
+--defaultContainerPaddingRightLeft: 1rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header {
+    max-width: var(--defaultContanierWidth);
+    margin: 0 auto;
+    padding-left: var(--defaultContainerPaddingRightLeft);
+    padding-right: var(--defaultContainerPaddingRightLeft);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.navbarLinksContainer {
+    display: flex;
+    gap: 1rem;
+}
+
+a {
+    color: var(--dark-cyan);
+}
+
+body {
+    background-color: var(--night);
+    color: var(--cerise);
+}
+
+.mainContainer {
+    max-width: var(--defaultContanierWidth);
+    margin: 0 auto;
+    padding-left: var(--defaultContainerPaddingRightLeft);
+    padding-right: var(--defaultContainerPaddingRightLeft);
+}
