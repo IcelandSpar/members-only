@@ -9,33 +9,33 @@
 <body>
     <%- include('partials/navbar') %>
     <main class="mainContainer">
-        <h1>Sign up for an account today !</h1>
-        <form action="/form/sign-up" method="POST">
-            <div class="formLabelAndInputCont">
-                <label for="username">Username: </label>
-                <input type="text" name="username" id="username">
+        <form action="/form/sign-up" method="POST" class="signUpForm">
+            <h1 class="signUpHeading">Sign up for an account today !</h1>
+            <div class="formInputsGridCont">
+                <div class="formLabelAndInputCont">
+                    <label for="username">Username: </label>
+                    <input type="text" name="username" id="username">
+                </div>
+                
+                <div class="formLabelAndInputCont">
+                    <label for="password">Password: </label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div class="formLabelAndInputCont">
+                    <label for="confirmPassword">Confirm Password: </label>
+                    <input type="text" name="confirmPassword" id="confirmPassword">
+                </div>
+                <div class="formLabelAndInputCont">
+                    <label for="firstName">First Name: </label>
+                    <input type="text" name="firstName" id="firstName">
+                </div>
+                <div class="formLabelAndInputCont">
+                    <label for="lastName">Last Name: </label>
+                    <input type="text" name="lastName" id="lastName">
+                </div>
+                <button class="button-23" role="button">Sign Up</button>
             </div>
             
-            <div class="formLabelAndInputCont">
-                <label for="password">Password: </label>
-                <input type="password" name="password" id="password">
-            </div>
-
-            <div class="formLabelAndInputCont">
-                <label for="confirmPassword">Confirm Password: </label>
-                <input type="text" name="confirmPassword" id="confirmPassword">
-            </div>
-
-            <div class="formLabelAndInputCont">
-                <label for="firstName">First Name: </label>
-                <input type="text" name="firstName" id="firstName">
-            </div>
-
-            <div class="formLabelAndInputCont">
-                <label for="lastName">Last Name: </label>
-                <input type="text" name="lastName" id="lastName">
-            </div>
-            <button>Submit</button>
         </form>
     </main>
 </body>

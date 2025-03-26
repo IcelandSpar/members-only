@@ -1,4 +1,9 @@
 :root {
+  /* --bleached-cedar: #351F39;
+--kimberly: #726A95;
+--shadow-green: #A0C1B8;
+--gothic: #719FB0;
+
 --cerise: #F90060ff;
 --black: #000000ff;
 --night: #040E08ff;
@@ -10,50 +15,155 @@
 --olivine: #A5C387ff;
 --blush: #C06A86ff;
 --dim-gray: #73695Bff;
---cambridge-blue: #84A58Cff;
+--cambridge-blue: #84A58Cff; */
 
---defaultContanierWidth: 1000px;
---defaultContainerPaddingRightLeft: 1rem;
+  --dark-background: #18122B;
+
+  --defaultContanierWidth: 1000px;
+  --defaultContainerPaddingRightLeft: 1rem;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 header {
-    max-width: var(--defaultContanierWidth);
-    margin: 0 auto;
-    padding-left: var(--defaultContainerPaddingRightLeft);
-    padding-right: var(--defaultContainerPaddingRightLeft);
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+  max-width: var(--defaultContanierWidth);
+  margin: 0 auto;
+  padding-left: var(--defaultContainerPaddingRightLeft);
+  padding-right: var(--defaultContainerPaddingRightLeft);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 3px solid #443C68;
 }
 
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
+.navbarHeading, .navbarHeading a {
+  color: #fff;
+  text-decoration: none;
+}
 
 .navbarLinksContainer {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 a {
-    color: var(--dark-cyan);
+  color: #fff;
 }
 
 body {
-    background-color: var(--night);
-    color: var(--cerise);
+  background-image: linear-gradient( to right,var(--dark-background), #393053);
+  color: #fff;
 }
 
 .mainContainer {
-    max-width: var(--defaultContanierWidth);
-    margin: 0 auto;
-    padding-left: var(--defaultContainerPaddingRightLeft);
-    padding-right: var(--defaultContainerPaddingRightLeft);
+  max-width: var(--defaultContanierWidth);
+  margin: 0 auto;
+  padding-left: var(--defaultContainerPaddingRightLeft);
+  padding-right: var(--defaultContainerPaddingRightLeft);
+}
+
+.formInputsGridCont {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 450px);
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+.signUpHeading {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.formLabelAndInputCont {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+  font-size: 2rem;
+}
+
+.formLabelAndInputCont input {
+  background-color: var(--night);
+  border: 2px solid #635985;
+  border-radius: 7px;
+}
+
+[type="text"],
+[type="password"] {
+  font-size: 2rem;
+  color: var(--dark-cyan);
+  padding: .5rem;
+}
+
+.loginFormAndHeader {
+  max-width: 500px;
+  margin: 1.5rem auto;
+}
+
+.signUpBtnContainer {
+
+}
+
+.signUpForm {
+
+}
+
+
+/* CSS */
+.button-23 {
+  display: block;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+  margin-left: auto;
+  justify-self: end;
+  align-self: end;
+  margin-bottom: 1rem;
+}
+
+.button-23:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow .2s;
+}
+
+.button-23:active {
+  background-color: #F7F7F7;
+  border-color: #000000;
+  transform: scale(.96);
+}
+
+.button-23:disabled {
+  border-color: #DDDDDD;
+  color: #DDDDDD;
+  cursor: not-allowed;
+  opacity: 1;
 }

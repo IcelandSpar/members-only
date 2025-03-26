@@ -9,17 +9,23 @@
 <body>
     <%- include('partials/navbar') %>
     <main class="mainContainer">
-        <h1><%= locals.title %></h1>
-        <form action="/form/log-in" method="POST">
-            <label for="username">Username: </label>
-            <br>
-            <input type="text" name="username" id="username">
-            <br>
-            <label for="password">Password: </label>
-            <br>
-            <input type="password" name="password" id="password">
-            <button>Submit</button>
-        </form>
+
+
+            <form action="/form/log-in" method="POST">
+                <h1 class="signUpHeading"><%= locals.title %></h1>
+                <div class="formInputsGridCont">
+                    <div class="formLabelAndInputCont">
+                        <label for="username">Username: </label>
+                        <input type="text" name="username" id="username">
+                    </div>
+                    <div class="formLabelAndInputCont">
+                        <label for="password">Password: </label>
+                        <input type="password" name="password" id="password">
+                    </div>
+                </div>
+                <button class="button-23" role="button">Log In</button>
+            </form>
+
     </main>
 </body>
 </html>
