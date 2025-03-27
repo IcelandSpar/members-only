@@ -70,6 +70,10 @@ body {
   padding-right: var(--defaultContainerPaddingRightLeft);
 }
 
+.newMessageForm {
+  margin-top: 1rem;
+}
+
 .formInputsGridCont {
   display: grid;
   grid-template-columns: repeat(auto-fit, 450px);
@@ -93,17 +97,30 @@ body {
   font-size: 2rem;
 }
 
-.formLabelAndInputCont input {
+.formLabelAndInputCont input, .formLabelAndInputCont textarea {
   background-color: var(--night);
   border: 2px solid #635985;
   border-radius: 7px;
 }
 
+.newPostFieldSet {
+  border: 2px dashed #635985;
+
+}
+
+legend {
+  font-size: 1.5rem;
+}
+
 [type="text"],
-[type="password"] {
+[type="password"], textarea {
   font-size: 2rem;
   color: var(--dark-cyan);
   padding: .5rem;
+}
+
+textarea {
+  resize: vertical;
 }
 
 .loginFormAndHeader {

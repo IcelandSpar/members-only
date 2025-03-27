@@ -3,11 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles.css" />
     <title><%= locals.title %></title>
   </head>
   <body>
-<%- include('partials/navbar') %>
-    
+    <%- include('partials/navbar') %>
+    <main class="mainContainer">
+      <form action="/" method="POST" class="newMessageForm">
+        <fieldset class="newPostFieldSet">
+          <legend>Write New Post</legend>
+          <div class="formLabelAndInputCont">
+            <label for="title">Title: </label>
+
+            <input type="text" name="title" id="title" />
+          </div>
+          <div class="formLabelAndInputCont">
+              <label for="message">Message: </label>
+              <textarea name="message" id="message" class="messageTextArea"></textarea>
+          </div>
+          <div class="characterCountCont">
+
+          </div>
+          <button class="button-23">Send Message</button>
+        </fieldset>
+      </form>
+      <script>
+        const characterLimit = 500;
+        const messageTextArea = document.querySelector('.messageTextArea');
+        const characterCountContainer = document.querySelector('.characterCountCont');
+        let characterCount = messageTextArea.value.length;
+        characterCountContainer.textContent = `Character count: ${characterCount}/${characterLimit}`;
+
+
+        const characterCountHandler = (e) => {
+            characterCount = messageTextArea.value.length;
+
+            characterCountContainer.textContent = `Character Count: ${characterCount}/${characterLimit}`;
+            if(characterCount > 500) {
+                characterCountContainer.style.color = 'red';
+            } else {
+                characterCountContainer.style.color = '#fff';
+            }
+
+        };
+
+        messageTextArea.addEventListener('keyup', characterCountHandler)
+      </script>
+    </main>
   </body>
 </html>
