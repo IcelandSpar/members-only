@@ -16,6 +16,7 @@ const indexController = async (req, res) => {
     res.render('index', {
         title: 'Home',
         msgData: formattedData,
+        isLoggedIn: req.isAuthenticated(),
     });
 }
 

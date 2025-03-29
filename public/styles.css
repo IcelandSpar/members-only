@@ -144,10 +144,21 @@ body {
   width: 100%;
 }
 
+.mustBeLoggedInParaContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: var(--defaultContanierWidth);
+  margin: 2rem auto;
+  text-align: center;
+}
+
 .newPostFieldSet {
   border: 2px dashed #635985;
 
 }
+
+
 
 legend {
   font-size: 1.5rem;
@@ -173,13 +184,15 @@ textarea {
   margin: 1.5rem auto;
 }
 
-.signUpBtnContainer {
+
+
+/* .signUpBtnContainer {
 
 }
 
 .signUpForm {
 
-}
+} */
 
 
 /* CSS */
@@ -248,10 +261,10 @@ textarea {
   .msgUnorderedList {
     max-width: 100%;
   }
-
+/* 
   .msgUnorderedList li {
     
-  }
+  } */
 
   .msgHeadingAndTimeContainer {
     flex-direction: column;

@@ -9,6 +9,7 @@
   <body>
     <%- include('partials/navbar') %>
     <main class="mainContainer">
+      <% if(locals.isLoggedIn) {  %>
       <form action="/" method="POST" class="newMessageForm">
         <fieldset class="newPostFieldSet">
           <legend>Write New Post <span>✍️</span></legend>
@@ -49,6 +50,12 @@
 
         messageTextArea.addEventListener('keyup', characterCountHandler)
       </script>
+      <% } else { %>
+        <div class="mustBeLoggedInParaContainer">
+          <p>To send a message you must be <a href="/form/log-in">logged in</a></p>
+          <p>If you don't have and account, you can <a href="/form/sign-up">sign up</a> for one !</p>
+        </div>
+      <% } %>
       <section>
         <% if(locals.msgData) {  %>
           <ul class="msgUnorderedList">
