@@ -4,7 +4,11 @@
       <div class="navbarLinksContainer">
         <a href="/">Messages</a>
           <a href="/form/sign-up">Sign Up</a>
-          <a href="/form/log-in">Log In</a>
+          <%  if(locals.isLoggedIn){  %>
+            <a href="/log-out">Log Out</a>
+          <% } else { %>
+            <a href="/form/log-in">Log In</a>
+            <% } %>
       </div>
     </nav>
   </header>

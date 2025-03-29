@@ -11,7 +11,7 @@ formRouter.post('/sign-up', postSignUpFormController);
 
 formRouter.get('/log-in', getLogInFormController);
 
-formRouter.post('/log-in', passport.authenticate('local', {successRedirect: '/form/protected-route', failureRedirect: '/form/protected-route'}) , postLogInController);
+formRouter.post('/log-in', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/form/log-in'}) , postLogInController);
 
 formRouter.get('/protected-route', protectedRouteControllerTest)
 
