@@ -1,4 +1,4 @@
-const {  } = require('../db/queries');
+const db = require('../db/queries');
 
 const indexController = async (req, res) => {
     res.render('index', {
@@ -7,7 +7,8 @@ const indexController = async (req, res) => {
 }
 
 const postIndexController = (req, res) => {
-    console.log(req.body);
+    const timePosted = new Date();
+    db.postNewMessage(2, req.body.title, timePosted, req.body.message);
     res.redirect('/');
 }
 
@@ -27,6 +28,7 @@ const getLogOutController = (req, res) => {
     });
     res.redirect('/');
 }
+
 
 module.exports = {
     indexController,
