@@ -1,8 +1,21 @@
 const db = require('../db/queries');
+const { intlFormatDistance } = require('date-fns');
 
 const indexController = async (req, res) => {
+    const msgData = await db.getIndexMessages();
+    
+
+    let formattedData = [];
+    msgData.forEach((item, index) => {
+        let newItem = item;
+        newItem.time_posted = intlFormatDistance(newItem.time_posted, new Date());
+        formattedData.push(newItem);
+    });
+
+
     res.render('index', {
-        title: 'Home'
+        title: 'Home',
+        msgData: formattedData,
     });
 }
 

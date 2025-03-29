@@ -74,6 +74,30 @@ body {
   margin-top: 1rem;
 }
 
+.msgUnorderedList {
+  list-style-type: none;
+  padding: 0;
+  margin: 2rem 0;
+
+
+}
+
+.msgUnorderedList li {
+  border-bottom: 3px solid #635985;
+  padding: 0;
+  margin: 1rem 0;
+  grid-template-columns: 1fr 10fr 2fr;
+  grid-template-rows: 1fr 2fr;
+  gap: 1rem 0;
+}
+
+.messageGridContainer {
+  display: grid;
+
+
+}
+
+
 .formInputsGridCont {
   display: grid;
   grid-template-columns: repeat(auto-fit, 450px);
@@ -82,6 +106,17 @@ body {
   justify-items: center;
   margin: 0 auto;
   gap: 1rem;
+}
+
+.msgPara {
+  grid-row: 2 / 3;
+  grid-column: 1 / 4;
+}
+
+.msgHeadingAndTimeContainer {
+  display: flex;
+  justify-content: space-between;
+  grid-column: 2 / 4;
 }
 
 .signUpHeading {

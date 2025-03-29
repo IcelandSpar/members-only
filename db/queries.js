@@ -1,7 +1,7 @@
 const pool = require('./pool');
 
-async function getTestInfo() {
-    const { rows } = await pool.query('SELECT * FROM test;');
+async function getIndexMessages() {
+    const { rows } = await pool.query('SELECT * FROM messages ORDER BY messages.id DESC');
     return rows;
 }
 
@@ -14,8 +14,10 @@ async function postNewMessage(userId, title, timePosted, message) {
     await pool.query('INSERT INTO messages (user_id, title, time_posted, message) VALUES ($1, $2, $3, $4)', [userId, title, timePosted, message]);
 }
 
+
+
 module.exports = {
-    getTestInfo,
+    getIndexMessages,
     postUserInfo,
     postNewMessage,
 }
