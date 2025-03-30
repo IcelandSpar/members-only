@@ -1,7 +1,7 @@
 const pool = require('./pool');
 
 async function getIndexMessages() {
-    const { rows } = await pool.query('SELECT * FROM messages ORDER BY messages.id DESC');
+    const { rows } = await pool.query("SELECT *, CONCAT_WS(' ',first_name, last_name) AS full_name, (SELECT is_member FROM users WHERE id = messages.user_id) FROM messages JOIN user_info ON messages.user_id = user_info.user_id ORDER BY messages.id DESC");
     return rows;
 }
 
