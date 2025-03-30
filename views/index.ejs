@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles.css" />
     <title><%= locals.title %></title>
+
+    <% if(!locals.isMember) { %>
+      <style>
+        .isMemberPara {
+          filter: blur(1.5px);
+          text-decoration: line-through;
+        }
+      </style>
+    <%  } %>
   </head>
   <body>
     <%- include('partials/navbar') %>
@@ -66,9 +75,14 @@
                 <div class="msgHeadingAndTimeContainer">
                   <div>
                     <h3><%= item.title %></h3>
-                    <p><%= item.is_member && isLoggedIn ? item.full_name : 'Anonymous User'%></p>
+                    <p class="isMemberPara"><%=  locals.isMember ? item.full_name : 'Anonymous User'%></p>
                   </div>
-                  <p><%= item.time_posted %></p>
+                  <% if(locals.isMember) { %>
+                    <p><%= item.time_posted %></p>
+                  <% } else { %>
+                    <p>Must be a <a href="/form/member-sign-up">member</a> to view time posted</p>
+                  <% }  %>
+                  
                 </div>
                 <p class="msgPara"><%= item.message %></p>
                 

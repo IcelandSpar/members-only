@@ -26,7 +26,7 @@ app.use(session({
     secret: process.env.COOKIE_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge:  60 * 1000 } // 60 seconds test
+    cookie: { maxAge:  60 * 60 * 1000 } // 60 seconds changed to mins test
 }));
 app.use(passport.authenticate('session'));
 

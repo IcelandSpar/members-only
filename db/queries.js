@@ -5,6 +5,12 @@ async function getIndexMessages() {
     return rows;
 }
 
+async function checkIfMember(user_id) {
+    const { rows } = await pool.query("SELECT is_member FROM users WHERE id=$1;",[user_id])
+    return rows[0];
+}
+
+
 async function postUserInfo(username, hash, salt, firstName, lastName) {
     const { rows } =  await pool.query('INSERT INTO users (username, hash, salt, is_member) VALUES ($1, $2, $3, false) RETURNING id',[username, hash, salt]);
     await pool.query('INSERT INTO user_info (user_id, first_name, last_name) VALUES ($1, $2, $3)', [rows[0].id, firstName, lastName])
@@ -20,4 +26,5 @@ module.exports = {
     getIndexMessages,
     postUserInfo,
     postNewMessage,
+    checkIfMember,
 }

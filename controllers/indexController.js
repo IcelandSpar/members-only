@@ -4,7 +4,14 @@ const { intlFormatDistance } = require('date-fns');
 const indexController = async (req, res) => {
     const msgData = await db.getIndexMessages();
     
-
+        let isUserMember = false;
+        if(req.isAuthenticated()) {
+            
+            
+            isUserMember = await db.checkIfMember(req.user.id);
+            
+        }
+    
     let formattedData = [];
     msgData.forEach((item, index) => {
         let newItem = item;
@@ -12,17 +19,19 @@ const indexController = async (req, res) => {
         formattedData.push(newItem);
     });
 
-
     res.render('index', {
         title: 'Home',
         msgData: formattedData,
         isLoggedIn: req.isAuthenticated(),
+        user: req.user,
+        isMember: isUserMember.is_member,
     });
 }
 
 const postIndexController = (req, res) => {
+    console.log(req.user);
     const timePosted = new Date();
-    db.postNewMessage(2, req.body.title, timePosted, req.body.message);
+    db.postNewMessage(req.user.id, req.body.title, timePosted, req.body.message);
     res.redirect('/');
 }
 
