@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { getSignUpFormController, postSignUpFormController, getLogInFormController, postLogInController } = require('../controllers/formControllers');
+const { getSignUpFormController, postSignUpFormController, getLogInFormController, postLogInController, getMemberSignUpForm, postMemberSignUpForm } = require('../controllers/formControllers');
 const { protectedRouteControllerTest } = require('../controllers/indexController');
 const passport = require('passport');
 
@@ -13,8 +13,11 @@ formRouter.get('/log-in', getLogInFormController);
 
 formRouter.post('/log-in', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/form/log-in'}) , postLogInController);
 
-formRouter.get('/protected-route', protectedRouteControllerTest)
+// formRouter.get('/protected-route', protectedRouteControllerTest)
 
+formRouter.get('/member-sign-up', getMemberSignUpForm);
+
+formRouter.post('/member-sign-up', postMemberSignUpForm);
 
 
 module.exports = formRouter;

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Sign Up</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <main class="mainContainer">
+        <form action="/form/member-sign-up" method="POST">
+            <h2 class="signUpHeading">To become a member you must know the secret password and be <a href="/form/log-in">logged in</a>.</h2>
+            <div class="formLabelAndInputCont becomeMemberLabelAndPassCont">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <button class="button-23 becomeAMemberPassBtn">Become a member</button>
+        </form>
+    </main>
+</body>
+</html>

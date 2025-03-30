@@ -20,6 +20,10 @@ async function postNewMessage(userId, title, timePosted, message) {
     await pool.query('INSERT INTO messages (user_id, title, time_posted, message) VALUES ($1, $2, $3, $4)', [userId, title, timePosted, message]);
 }
 
+async function changeToAdmin(userId) {
+    await pool.query('UPDATE users SET is_member = true WHERE users.id=$1', [userId]);
+}
+
 
 
 module.exports = {
@@ -27,4 +31,5 @@ module.exports = {
     postUserInfo,
     postNewMessage,
     checkIfMember,
+    changeToAdmin,
 }
