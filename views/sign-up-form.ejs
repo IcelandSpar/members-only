@@ -11,6 +11,15 @@
     <main class="mainContainer">
         <form action="/form/sign-up" method="POST" class="signUpForm">
             <h1 class="signUpHeading">Enter The Club</h1>
+            <% if(locals.errors) { %>
+                <ul>
+                <% locals.errors.forEach(error => { %>
+
+                    <li><%= error.msg %></li>
+
+                <% }) %>
+            </ul>
+                <% } %>
             <div class="formInputsGridCont">
                 <div class="formLabelAndInputCont">
                     <label for="username">Username: </label>
