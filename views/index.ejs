@@ -20,11 +20,14 @@
     <main class="mainContainer">
       <% if(locals.isLoggedIn) {  %>
         <% if(locals.errors) { %>
-          <ul>
-          <% errors.forEach(error => {   %>
-            <li><%= error.msg %></li>
-          <% })  %>
-          </ul>
+          <section class="indexErrorSection">
+            <h2 class="errorHeading">Please correct <span class="errorSpan">errors</span> in message submission.</h2>
+            <ul class="indexErrorUl">
+            <% errors.forEach(error => {   %>
+              <li class="indexErrorLi"><%= error.msg %></li>
+            <% })  %>
+            </ul>
+          </section>
         <% } %>
       <form action="/" method="POST" class="newMessageForm">
         <fieldset class="newPostFieldSet">

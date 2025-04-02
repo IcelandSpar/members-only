@@ -70,8 +70,40 @@ body {
   padding-right: var(--defaultContainerPaddingRightLeft);
 }
 
+.indexErrorUl {
+  text-align: center;
+  margin: 1.5rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 400px);
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  padding: 0;
+  gap: 2rem 0;
+}
+
+.indexErrorLi {
+  margin: 0;
+  text-decoration: 2px dotted #cc0000 underline;
+  text-underline-offset: .5rem;
+}
+
 .newMessageForm {
   margin-top: 1rem;
+}
+
+.errorHeading {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.indexErrorSection {
+  margin: 1.5rem auto;
+}
+
+.errorSpan {
+  color: #cc0000;
+  font-size: 1.5rem;
 }
 
 .msgUnorderedList {

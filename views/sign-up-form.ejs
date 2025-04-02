@@ -12,13 +12,14 @@
         <form action="/form/sign-up" method="POST" class="signUpForm">
             <h1 class="signUpHeading">Enter The Club</h1>
             <% if(locals.errors) { %>
-                <ul>
-                <% locals.errors.forEach(error => { %>
-
-                    <li><%= error.msg %></li>
-
-                <% }) %>
-            </ul>
+                <section class="indexErrorSection">
+                    <h2 class="errorHeading">Please correct <span class="errorSpan">errors</span> in sign up form.</h2>
+                    <ul class="indexErrorUl">
+                    <% locals.errors.forEach(error => { %>
+                        <li class="indexErrorLi"><%= error.msg %></li>
+                    <% }) %>
+                                </ul>
+                </section>
                 <% } %>
             <div class="formInputsGridCont">
                 <div class="formLabelAndInputCont">
