@@ -95,7 +95,10 @@
                   
                 </div>
                 <p class="msgPara"><%= item.message %></p>
-                
+                <% if(locals.isMember) { %>
+                <form action="/delete"  method="POST" class="indexDeleteForm"><button class="button-23 indexDeleteBtn" name="id" value="<%= item.id %>" >Delete</button></form>
+                  
+                <% } %>
               </li>
             <% }) %>
           </ul>

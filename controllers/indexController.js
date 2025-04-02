@@ -4,11 +4,11 @@ const { body,  validationResult } = require('express-validator');
 
 const validateMessageForm = [
     body('title').trim()
-    .isAlphanumeric().withMessage('Title must be of alphanumeric value')
+    .matches(/^[A-Za-z0-9 .,'!&]+$/).withMessage('Title must consist of letters, numbers or some special charcters.')
     .isLength({min: 1, max: 25}).withMessage('Title must be between 1-25 characters'),
     body('message').trim()
     .isLength({min: 1, max: 500}).withMessage('Message must be between 1-500 characters.')
-    .isAlphanumeric().withMessage('Message must only contain alphanumeric values.'),
+    .matches(/^[A-Za-z0-9 .,'!&]+$/).withMessage('Message must consist of letters, numbers or some special charcters.'),
 ]
 
 
@@ -76,7 +76,6 @@ async (req, res) => {
         })
     }
 
-    console.log(req.user);
     const timePosted = new Date();
     db.postNewMessage(req.user.id, req.body.title, timePosted, req.body.message);
     res.redirect('/');
@@ -99,10 +98,19 @@ const getLogOutController = (req, res) => {
     res.redirect('/');
 }
 
+const postDeleteController = async (req, res) => {
+    
+    await db.deleteMsg(req.body.id);
+    
+
+    res.redirect('/');
+}
+
 
 module.exports = {
     indexController,
     postIndexController,
     protectedRouteControllerTest,
     getLogOutController,
+    postDeleteController,
 }

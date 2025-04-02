@@ -24,6 +24,10 @@ async function changeToAdmin(userId) {
     await pool.query('UPDATE users SET is_member = true WHERE users.id=$1', [userId]);
 }
 
+async function deleteMsg(msgId) {
+    await pool.query('DELETE FROM messages WHERE id=$1', [msgId]);
+}
+
 
 
 module.exports = {
@@ -32,4 +36,5 @@ module.exports = {
     postNewMessage,
     checkIfMember,
     changeToAdmin,
+    deleteMsg,
 }
