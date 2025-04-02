@@ -19,6 +19,13 @@
     <%- include('partials/navbar') %>
     <main class="mainContainer">
       <% if(locals.isLoggedIn) {  %>
+        <% if(locals.errors) { %>
+          <ul>
+          <% errors.forEach(error => {   %>
+            <li><%= error.msg %></li>
+          <% })  %>
+          </ul>
+        <% } %>
       <form action="/" method="POST" class="newMessageForm">
         <fieldset class="newPostFieldSet">
           <legend>Write New Post <span>✍️</span></legend>
