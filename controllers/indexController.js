@@ -2,6 +2,11 @@ const db = require('../db/queries');
 const { intlFormatDistance } = require('date-fns');
 const { body,  validationResult } = require('express-validator');
 
+const validateDeleteBtn = [
+    body('id').trim()
+    .isNumeric()
+]
+
 const validateMessageForm = [
     body('title').trim()
     .matches(/^[A-Za-z0-9 .,'!&]+$/).withMessage('Title must consist of letters, numbers or some special charcters.')
@@ -98,13 +103,21 @@ const getLogOutController = (req, res) => {
     res.redirect('/');
 }
 
-const postDeleteController = async (req, res) => {
+const postDeleteController = [
+    validateDeleteBtn,
+async (req, res) => {
+
+    const errors = validationResult(req);
+
+    if(!errors.isEmpty()) {
+        return res.status(400).redirect('/');
+    }
     
     await db.deleteMsg(req.body.id);
     
 
     res.redirect('/');
-}
+}]
 
 
 module.exports = {
